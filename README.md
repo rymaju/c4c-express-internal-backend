@@ -1,5 +1,6 @@
 # C4C Express Internal Backend
 
+## [API Documentation](api.md)
 
 ## Install
 ```sh

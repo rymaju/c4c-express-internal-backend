@@ -102,8 +102,7 @@ Every thing is okay.
     "major": STRING,
     "privilegeLevel": STRING
   },
-
-  ...{
+  {
     "email": STRING,
     "firstName": STRING,
     "lastName": STRING,
