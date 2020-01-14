@@ -28,9 +28,13 @@ connection.once("open", () => {
   console.log("database connection successful!");
 });
 
-//const apartmentsRouter = require("./routes/apartments");
+const publicRouter = require("./routes/public");
 
-//app.use("/apartments", apartmentsRouter);
+app.use("/", publicRouter);
+
+const protectedRouter = require("./routes/protected");
+
+app.use("/protected", protectedRouter);
 
 app.get("/", function(req, res) {
   res.send("Hello World!");
