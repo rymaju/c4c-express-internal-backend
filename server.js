@@ -5,6 +5,10 @@ fs = require("fs");
 mongoose = require("mongoose");
 require("dotenv").config();
 
+const NodeCache = require("node-cache");
+
+tokenCache = new NodeCache({ checkperiod: 600 }); //clear the cache of expired tokens every 10 minutes
+
 const app = express();
 const port = process.env.PORT || 8443;
 const uri = process.env.ATLAS_URI;

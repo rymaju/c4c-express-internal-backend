@@ -25,7 +25,8 @@
     "fs": "0.0.1-security",
     "https": "^1.0.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.8.7"
+    "mongoose": "^5.8.7",
+    "node-cache": "^5.1.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"

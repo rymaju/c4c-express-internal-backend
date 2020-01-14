@@ -5,7 +5,9 @@ const crypto = require("crypto");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 
-jwt = require("jsonwebtoken");
+const jwt = require("jsonwebtoken");
+
+const authenticate = require("../utils/auth");
 
 router.route("/login").post((req, res) => {
   const email = req.body.email;
@@ -56,6 +58,17 @@ router.route("/signup").post((req, res) => {
       .save()
       .then(() => res.json("User added!"))
       .catch(err => res.status(400).json("Error: " + err));
+  });
+});
+
+router.route("/logout").post((req, res) => {
+  const fullToken = req.headers.authorization || "";
+  const token = fullToken.split(" ")[1];
+
+  authenticate(req, res, decoded => {
+    const nowInSeconds = Math.round(Date.now() / 1000);
+    tokenCache.set(decoded.jti, "", decoded.exp - nowInSeconds);
+    res.status(201).json("Logged out successfully!");
   });
 });
 
