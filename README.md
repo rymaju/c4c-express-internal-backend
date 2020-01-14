@@ -14,8 +14,7 @@ Making this in Express and with MongoDB has a few key benefits that make backend
 
 ### Cons
 
-- Switching to mongoose means we lose use migrations, which are super helpful for versioning and keeping track of very strict schemas. but MongoDB is **suppposed** to be flexible and agile and generally schema-less and so migrations become unnessesary. If we *really* want migrations we can add a mongoDB migrations npm package later.
-
+- Switching to mongoose means we lose use migrations, which are super helpful for versioning and keeping track of very strict schemas. but MongoDB is **suppposed** to be flexible and agile and generally schema-less and so migrations become unnessesary. If we _really_ want migrations we can add a mongoDB migrations npm package later.
 
 ## [API Documentation](api.md)
 
@@ -51,7 +50,15 @@ Just kidding, for now the .env and URI are in the repo because its private anywa
 ## Run
 
 ```sh
+npm run dev
+```
+
+or if in production
+
+```sh
 npm start
 ```
+
+The difference is that `npm run dev` uses nodemon to automatically restart the server when changes are detected, very useful for development.
 
 The API will be live at `https://localhost:8443`
