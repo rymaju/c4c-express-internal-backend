@@ -4,11 +4,18 @@
 
 Making this in Express and with MongoDB has a few key benefits that make backend development faster and cleaner
 
+### Pros
+
 - npm packages help abstract complex behavior and reduce code bloat in this repo
-- running with node and nodemon means that there is essentially **no** compile time. You are never wasting time waiting to see your changes
+- running with node and nodemon means that there is essentially **no** compile time. You are never wasting time waiting to see your changes which was a really annoying issue with the Vertx version.
 - Javascript becomes the language for frontend and backend, collaboration could become easier
-- MongoDB/Mongoose has easier to read schemas and is super simple to set up, you dont need to download any local database software just run `npm start` and it will connect to MongoDB Atlas automatically. (admittedly switching to mongoose means we lose use migrations, which are super helpful for versioning and keeping track of very strict schemas. but MongoDB is **suppposed** to be flexible and agile and generally schema-less and so migrations become an unnessesary antipattern. If we *really* want migrations we can add a mongoDB migrations npm package later.)
+- MongoDB/Mongoose has easier to read schemas and is super simple to set up, you dont need to download any local database software just run `npm start` and it will connect to MongoDB Atlas automatically.
 - Most importantly, its fun to write
+
+### Cons
+
+- Switching to mongoose means we lose use migrations, which are super helpful for versioning and keeping track of very strict schemas. but MongoDB is **suppposed** to be flexible and agile and generally schema-less and so migrations become unnessesary. If we *really* want migrations we can add a mongoDB migrations npm package later.
+
 
 ## [API Documentation](api.md)
 
