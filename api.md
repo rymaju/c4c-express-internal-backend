@@ -28,5 +28,6 @@ Currently missing:
 
 - [get all events](api/events.md/#get-events)
 - [get a single event by ID](api/events.md/#get-eventsid)
-- [get all events](api/events.md/#put-eventsid)
-- [get all events](api/events.md/#delete-eventsid)
+- [create a single event by ID](api/events.md/#post-eventsid)
+- [update a single event by ID](api/events.md/#put-eventsid)
+- [get a single event by ID](api/events.md/#delete-eventsid)
