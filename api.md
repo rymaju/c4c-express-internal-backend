@@ -53,8 +53,8 @@ Authorization is one of
 
 ## News
 
-- [get all news posts](api/events.md/#get-news)
-- [get a single news post by ID](api/events.md/#get-newsid)
-- [create a single news post](api/events.md/#post-news)
-- [update a single news post by ID](api/events.md/#put-newsid)
-- [delete a single news post by ID](api/events.md/#delete-newsid)
+- [get all news posts](api/news.md/#get-news)
+- [get a single news post by ID](api/news.md/#get-newsid)
+- [create a single news post](api/news.md/#post-news)
+- [update a single news post by ID](api/news.md/#put-newsid)
+- [delete a single news post by ID](api/news.md/#delete-newsid)
