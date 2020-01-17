@@ -48,7 +48,7 @@ app.get("/", function(req, res) {
   res.send("Hello World!");
 });
 
-if (process.env.HEROKU) {
+if (process.env.HEROKU == 'true') {
   app.listen(port, () => {
     console.log(`Server is listening on port ${port} with Heroku`);
   });
