@@ -32,13 +32,17 @@ connection.once("open", () => {
   console.log("database connection successful!");
 });
 
-const publicRouter = require("./routes/public");
+const publicRouter = require("./routes/login");
 
 app.use("/", publicRouter);
 
-const protectedRouter = require("./routes/protected");
+const eventsRouter = require("./routes/events");
 
-app.use("/protected", protectedRouter);
+app.use("/events", eventsRouter);
+
+const usersRouter = require("./routes/users");
+
+app.use("/users", usersRouter);
 
 app.get("/", function(req, res) {
   res.send("Hello World!");

@@ -18,6 +18,7 @@ Currently missing:
 
 - [signup](api.md/#post-signup)
 - [login](api.md/#post-login)
+- [logout](api.md/#post-login)
 - [get all users](api.md/#get-protectedusers)
 
 ## `POST /signup`

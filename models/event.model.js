@@ -6,7 +6,9 @@ const ObjectId = mongoose.Schema.Types.ObjectId;
 const eventSchema = new Schema(
   {
     name: { type: String, required: true },
+    description: { type: String, required: true },
     eventDate: { type: Date, required: true },
+    eventCode: { type: String, required: true, unique: true },
     isOpen: { type: Boolean, required: true },
     attendees: { type: [ObjectId], default: [] }
   },
