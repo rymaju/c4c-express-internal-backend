@@ -45,10 +45,12 @@ const usersRouter = require("./routes/users");
 app.use("/users", usersRouter);
 
 app.get("/", function(req, res) {
-  res.send("Hello World!");
+  res.send(
+    `<a href="https://github.com/rymaju/c4c-express-internal-backend/blob/master/api.md">API Docs</a>`
+  );
 });
 
-if (process.env.HEROKU == 'true') {
+if (process.env.HEROKU == "true") {
   app.listen(port, () => {
     console.log(`Server is listening on port ${port} with Heroku`);
   });
