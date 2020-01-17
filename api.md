@@ -30,4 +30,4 @@ Currently missing:
 - [get a single event by ID](api/events.md/#get-eventsid)
 - [create a single event by ID](api/events.md/#post-eventsid)
 - [update a single event by ID](api/events.md/#put-eventsid)
-- [get a single event by ID](api/events.md/#delete-eventsid)
+- [delete a single event by ID](api/events.md/#delete-eventsid)
