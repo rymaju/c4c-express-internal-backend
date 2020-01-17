@@ -38,7 +38,7 @@ Authorization is one of
 
 - [signup](api/login&users.md/#post-signup)
 - [login](api/login&users.md/#post-login)
-- [logout](api/login&users.md/#post-login)
+- [logout](api/login&users.md/#post-logout)
 - [get all users](api/login&users.md/#get-users)
 - [get a single user by ID](api/login&users.md/#get-usersid)
 
