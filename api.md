@@ -26,6 +26,12 @@ For endpoints that require a request body, we attach it to our request in the fo
 
 For endpoints that require authorization, we attach our JWT to the request header `Authorization` in the form `Bearer {token}`
 
+Authorization is one of
+
+- None: does not require a JWT in the Authorization header, essentially a public endpoint
+- Privilege level 0: requires a JWT (valid logged in user) but does not expect any extra privileges
+- Privilege level 1: requires a JWT (valid logged in user) and also requires that the token has privilege level 1, which can be thought of as admin access (read/write to important things like events)
+
 # API Endpoints
 
 ## Login & Users
