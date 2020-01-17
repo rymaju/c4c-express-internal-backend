@@ -28,7 +28,6 @@ npm install
 
 If not already done, ask for the `ATLAS_URI` password from me (Ryan Jung), create your own MongoDB cluster on Atlas, or install MongoDB locally.
 
-
 If needed, create new local SSL certificates with this command:
 
 ```sh
@@ -37,7 +36,7 @@ openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem -days 1000
 
 This will generate a cert.pem and key.pem needed for HTTPS. Chrome and other browsers will give a warning when you connect, but it can be ignored.
 
-Edot the `.env` file in the root folder with the URI for your mongoDB connection and the passphrase for the SSL certificate like so:
+Create a file named `.env` in the root folder with the URI for your mongoDB connection and the passphrase for the SSL certificate like so:
 
 ```
 ATLAS_URI=mongodb+srv://backend:<password>@cluster0-bapim.mongodb.net/test?retryWrites=true&w=majority
