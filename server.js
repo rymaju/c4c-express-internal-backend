@@ -48,6 +48,12 @@ app.get("/", function(req, res) {
   res.send("Hello World!");
 });
 
-https.createServer(sslOptions, app).listen(port, () => {
-  console.log(`Server is listening on port ${port}`);
-});
+if (process.env.HEROKU) {
+  app.listen.listen(port, () => {
+    console.log(`Server is listening on port ${port}`);
+  });
+} else {
+  https.createServer(sslOptions, app).listen(port, () => {
+    console.log(`Server is listening on port ${port}`);
+  });
+}
