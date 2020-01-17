@@ -8,11 +8,11 @@ Currently there are only a few of the endpoints we want, but the ones so far sho
 - JWT signing and verification
 - password verification and hashing with bcrypt
 - logout/jwt blacklisting
+- CRUD for news and events
 
 Currently missing:
 
-- CRUD news routes
-- Update and delete on users
+- Update and delete on users (including application data)
 
 # Examples
 
