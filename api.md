@@ -6,7 +6,7 @@ Currently there are only a few of the endpoints we want, but the ones so far sho
 
 - public and protected routes
 - JWT signing and verification
-- password verification and hasing with bcrypt
+- password verification and hashing with bcrypt
 - logout/jwt blacklisting
 
 Currently missing:
