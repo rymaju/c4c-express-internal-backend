@@ -199,3 +199,33 @@ The request does not contain sufficient authorization, the specifics are explain
 ```json
 "Error: ERROR"
 ```
+
+## `POST /events/checkin/:code`
+
+Assigns the user associated with the user_id in the JWT to the attendees of the event with the given event code
+
+### Authorization Requirements
+
+Requires privilege level 0.
+
+### Responses
+
+#### `200 OK`
+
+User was successfully checked in to the event
+
+#### `400 BAD REQUEST`
+
+The request body was malformed according to the specification, the specifics are explained in the response body.
+
+```json
+"Error: ERROR"
+```
+
+#### `401 UNAUTHORIZED`
+
+The request does not contain sufficient authorization, the specifics are explained in the response body
+
+```json
+"Error: ERROR"
+```
