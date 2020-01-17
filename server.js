@@ -49,11 +49,13 @@ app.get("/", function(req, res) {
 });
 
 if (process.env.HEROKU) {
-  app.listen.listen(port, () => {
-    console.log(`Server is listening on port ${port}`);
+  app.listen(port, () => {
+    console.log(`Server is listening on port ${port} with Heroku`);
   });
 } else {
   https.createServer(sslOptions, app).listen(port, () => {
-    console.log(`Server is listening on port ${port}`);
+    console.log(
+      `Server is listening on port ${port} with our own certificates`
+    );
   });
 }
