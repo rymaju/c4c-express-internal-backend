@@ -54,7 +54,7 @@ router.route("/:id").put(authenticate(1), function(req, res, next) {
       event.isOpen = req.body.isOpen;
       event
         .save()
-        .then(() => res.json("Exercise updated."))
+        .then(() => res.json("Event updated."))
         .catch(err => res.status(400).json("Error: " + err));
     })
     .catch(err => res.status(400).json("Error " + err));
@@ -63,7 +63,7 @@ router.route("/:id").put(authenticate(1), function(req, res, next) {
 //Requires level 1 privileges
 router.route("/:id").delete(authenticate(1), function(req, res, next) {
   Event.findByIdAndDelete(req.params.id)
-    .then(event => res.json("Exercise deleted."))
+    .then(event => res.json("Event deleted."))
     .catch(err => res.status(400).json("Error " + err));
 });
 

@@ -40,6 +40,10 @@ const eventsRouter = require("./routes/events");
 
 app.use("/events", eventsRouter);
 
+const newsRouter = require("./routes/news");
+
+app.use("/news", newsRouter);
+
 const usersRouter = require("./routes/users");
 
 app.use("/users", usersRouter);
