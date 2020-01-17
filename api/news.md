@@ -16,15 +16,15 @@ Returns the list of events as a JSON array
 [
   {
     "_id": STRING,
-    "name": STRING,
+    "title": STRING,
     "description": STRING,
-    "eventDate": DATE,
-    "eventCode": STRING,
-    "isOpen": BOOLEAN,
+    "author": STRING,
+    "datePublished": DATE,
+    "content": STRING,
+    "imageUrl": STRING,
     "createdAt": DATE,
     "updatedAt": DATE,
-    "__v": INTEGER,
-    "attendees": [STRING]
+    "__v": INTEGER
   }
 ]
 ```
@@ -40,9 +40,9 @@ The request body was malformed according to the specification, the specifics are
 "Error: ERROR"
 ```
 
-## `GET /events/:id`
+## `GET /news/:id`
 
-Used for getting a single event in the database by ID.
+Used for getting a single news post in the database by ID.
 
 ### Authorization Requirements
 
@@ -57,15 +57,15 @@ Returns the a JSON object representing an event
 ```json
 {
   "_id": STRING,
-  "name": STRING,
+  "title": STRING,
   "description": STRING,
-  "eventDate": DATE,
-  "eventCode": STRING,
-  "isOpen": BOOLEAN,
+  "author": STRING,
+  "datePublished": DATE,
+  "content": STRING,
+  "imageUrl": STRING,
   "createdAt": DATE,
   "updatedAt": DATE,
-  "__v": INTEGER,
-  "attendees": [STRING]
+  "__v": INTEGER
 }
 ```
 
@@ -80,9 +80,9 @@ The request body was malformed according to the specification, the specifics are
 "Error: ERROR"
 ```
 
-## `POST /events`
+## `POST /news`
 
-Used for creating an event to be stored in the database.
+Used for creating an news post to be stored in the database.
 
 ### Authorization Requirements
 
@@ -92,11 +92,12 @@ Requires privilege level 1.
 
 ```json
 {
-  "name": STRING,
+  "title": STRING,
   "description": STRING,
-  "eventDate": DATE,
-  "eventCode": STRING,
-  "isOpen": BOOLEAN
+  "author": STRING,
+  "datePublished": DATE,
+  "content": STRING,
+  "imageUrl": STRING
 }
 ```
 
@@ -107,7 +108,7 @@ Example: new Date().toJSON() -> "2020-01-17T03:25:49.315Z"
 
 #### `201 OK`
 
-Event was successfully added to the database.
+News post was successfully added to the database.
 
 #### `400 BAD REQUEST`
 
@@ -125,9 +126,9 @@ The request does not contain sufficient authorization, the specifics are explain
 "Error: ERROR"
 ```
 
-## `PUT /events`
+## `PUT /news/:id`
 
-Used for updating an event to be stored in the database.
+Used for updating a news post to be stored in the database by ID.
 
 ### Authorization Requirements
 
@@ -137,11 +138,12 @@ Requires privilege level 1.
 
 ```json
 {
-  "name": STRING,
+  "title": STRING,
   "description": STRING,
-  "eventDate": DATE,
-  "eventCode": STRING,
-  "isOpen": BOOLEAN
+  "author": STRING,
+  "datePublished": DATE,
+  "content": STRING,
+  "imageUrl": STRING
 }
 ```
 
@@ -152,7 +154,7 @@ Example: new Date().toJSON() -> "2020-01-17T03:25:49.315Z"
 
 #### `201 OK`
 
-Event was successfully updated and saved to the database.
+News post was successfully updated and saved to the database.
 
 #### `400 BAD REQUEST`
 
@@ -170,7 +172,7 @@ The request does not contain sufficient authorization, the specifics are explain
 "Error: ERROR"
 ```
 
-## `DELETE /events/:id`
+## `DELETE /news/:id`
 
 Used for deleting a single event in the database by ID.
 
@@ -182,37 +184,7 @@ None.
 
 #### `200 OK`
 
-Event was successfully deleted from the database.
-
-#### `400 BAD REQUEST`
-
-The request body was malformed according to the specification, the specifics are explained in the response body.
-
-```json
-"Error: ERROR"
-```
-
-#### `401 UNAUTHORIZED`
-
-The request does not contain sufficient authorization, the specifics are explained in the response body
-
-```json
-"Error: ERROR"
-```
-
-## `POST /events/checkin/:code`
-
-Assigns the user associated with the user_id in the JWT to the attendees of the event with the given event code
-
-### Authorization Requirements
-
-Requires privilege level 0.
-
-### Responses
-
-#### `200 OK`
-
-User was successfully checked in to the event
+News post was successfully deleted from the database.
 
 #### `400 BAD REQUEST`
 

@@ -46,6 +46,15 @@ Authorization is one of
 
 - [get all events](api/events.md/#get-events)
 - [get a single event by ID](api/events.md/#get-eventsid)
-- [create a single event by ID](api/events.md/#post-eventsid)
+- [create a single event](api/events.md/#post-events)
 - [update a single event by ID](api/events.md/#put-eventsid)
 - [delete a single event by ID](api/events.md/#delete-eventsid)
+- [attend an event by event code](api/events.md/#post-eventscheckincode)
+
+## News
+
+- [get all news posts](api/events.md/#get-news)
+- [get a single news post by ID](api/events.md/#get-newsid)
+- [create a single news post](api/events.md/#post-news)
+- [update a single news post by ID](api/events.md/#put-newsid)
+- [delete a single news post by ID](api/events.md/#delete-newsid)

@@ -125,7 +125,7 @@ The request does not contain sufficient authorization, the specifics are explain
 "Error: ERROR"
 ```
 
-## `PUT /events`
+## `PUT /events/:id`
 
 Used for updating an event to be stored in the database.
 
