@@ -24,7 +24,7 @@ For example to get all users we would: `GET https://c4c-heroku-internal-backend.
 
 For endpoints that require a request body, we attach it to our request in the form of JSON.
 
-For endpoints that require authorization, we attach our JWT to the request header `Authorization` in the form `Bearer: {token}`
+For endpoints that require authorization, we attach our JWT to the request header `Authorization` in the form `Bearer {token}`
 
 # API Endpoints
 
