@@ -68,6 +68,36 @@ The request body was malformed according to the specification, the specifics are
 "Error: ERROR"
 ```
 
+## `POST /logout`
+
+Used for logging out a user, invalidating the given JWT.
+
+### Authorization Requirements
+
+Requires privilege level 1.
+
+### Responses
+
+#### `201 OK`
+
+User logged out successfully.
+
+#### `400 BAD REQUEST`
+
+The request body was malformed according to the specification, the specifics are explained in the response body.
+
+```json
+"Error: ERROR"
+```
+
+#### `401 UNAUTHORIZED`
+
+The request does not contain sufficient authorization, the specifics are explained in the response body
+
+```json
+"Error: ERROR"
+```
+
 ## `GET /users`
 
 Used for getting a list of public information about all users in the database.
