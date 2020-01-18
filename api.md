@@ -18,13 +18,13 @@ Currently missing:
 
 The backend is hosted live at `https://c4c-heroku-internal-backend.herokuapp.com/`.
 
-To access endpoints, send a request in the form `{HTTPHEADER} https://c4c-heroku-internal-backend.herokuapp.com/{route}`.
+To access endpoints, send a request in the form `<HTTPHEADER> https://c4c-heroku-internal-backend.herokuapp.com/<route>`.
 
 For example to get all users we would: `GET https://c4c-heroku-internal-backend.herokuapp.com/users`.
 
 For endpoints that require a request body, we attach it to our request in the form of JSON.
 
-For endpoints that require authorization, we attach our JWT to the request header `Authorization` in the form `Bearer {token}`
+For endpoints that require authorization, we attach our JWT to the request header `Authorization` in the form `Bearer <token>`
 
 Authorization is one of
 

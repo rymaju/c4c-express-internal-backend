@@ -9,6 +9,7 @@ const jwt = require("jsonwebtoken");
 
 const authenticate = require("../middleware/auth");
 
+// Returns a valid JWT for 60 minutes if the username and password match a user in the db
 router.route("/login").post((req, res) => {
   const email = req.body.email;
   const plaintextPassword = req.body.password;
@@ -27,6 +28,7 @@ router.route("/login").post((req, res) => {
         if (err) return res.status(400).json("Error: " + err);
         if (!isValid) return res.status(401).json("Error: Incorrect password");
 
+        // jti is a short cryptographically random string to id the token
         const jti = crypto.randomBytes(16).toString("hex");
 
         const token = jwt.sign(
@@ -45,6 +47,7 @@ router.route("/login").post((req, res) => {
   );
 });
 
+// Creates an account with privilege level 0
 router.route("/signup").post((req, res) => {
   const email = req.body.email;
   const firstName = req.body.firstName;
@@ -70,9 +73,11 @@ router.route("/signup").post((req, res) => {
   });
 });
 
+// Blacklists JWT
 router.route("/logout").post(authenticate(0), function(req, res) {
   console.log("logging out");
   const nowInSeconds = Math.round(Date.now() / 1000);
+  //blacklisted tokens are stored in the tokenCache keyed by jti, which automatically cleans expired tokens every 10 min
   tokenCache.set(req.token.jti, "", req.token.exp - nowInSeconds);
   res.status(201).json("Logged out successfully!");
 });

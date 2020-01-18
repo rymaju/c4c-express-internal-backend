@@ -1,19 +1,23 @@
 const jwt = require("jsonwebtoken");
 
-// authenticate : int  -> function(req, res, next)
+// Middleware: function(req, res, next)
 
+// authenticate : int -> Middleware
+// Custom middleware to verify jwt given the required privilege level
+// also checks the token is not blacklisted (in the tokenCache)
+// as well as standard check for good signature and unexpired token
+// decoded token is stored in req.token
 function authenticate(requiredPrivilegeLevel) {
   let token;
   return (req, res, next) => {
     try {
-      console.log("verifying");
-
       token = req.headers.authorization.split(" ")[1];
-      console.log(jwt.decode(token).exp);
-      console.log(Math.round(Date.now() / 1000));
-      console.log(jwt.decode(token).exp - Math.round(Date.now() / 1000));
     } catch (err) {
-      return res.status(401).json("Error: " + err);
+      return res
+        .status(401)
+        .json(
+          "Error: Malformed Authorization header. Token should be sent under Authorization as Bearer <token>"
+        );
     }
 
     jwt.verify(token, process.env.JWT_SECRET, function(err, decoded) {
@@ -21,14 +25,10 @@ function authenticate(requiredPrivilegeLevel) {
       if (tokenCache.has(decoded.jti))
         return res.status(401).json("Error: blacklisted token");
 
-      console.log(
-        decoded.privilege_level + ", should be < " + requiredPrivilegeLevel
-      );
       if (decoded.privilege_level < requiredPrivilegeLevel)
         return res
           .status(401)
           .json("Error: insufficent privilege to access this resource");
-      console.log("made it");
       req.token = decoded;
       next();
     });

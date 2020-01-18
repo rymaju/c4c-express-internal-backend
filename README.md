@@ -4,17 +4,18 @@
 
 Making this in Express and with MongoDB has a few key benefits that make backend development faster and cleaner
 
-### Pros
+### Benefits
 
 - npm packages help abstract complex behavior and reduce code bloat in this repo
+- on the same note, writing in Javascript with npm packages allows you to quickly write more with less. This *entire* backend is just **386** lines of Javascript. For comparsion *just* the apiRouter in the Vertx backend is over **1000** lines of Java. 
 - running with node and nodemon means that there is essentially **no** compile time. You are never wasting time waiting to see your changes which was a really annoying issue with the Vertx version.
-- Javascript becomes the language for frontend and backend, collaboration could become easier
+- Javascript becomes the language for frontend and backend, collaboration could become easier as well as standardizing testing to one Javascript library
 - MongoDB/Mongoose has easier to read schemas and is super simple to set up, you dont need to download any local database software just run `npm start` and it will connect to MongoDB Atlas automatically.
-- Most importantly, its fun to write
+- Most importantly, its actually fun to write
 
-### Cons
+### Concerns
 
-- Switching to mongoose means we lose use migrations, which are super helpful for versioning and keeping track of very strict schemas. but MongoDB is **suppposed** to be flexible and agile and generally schema-less and so migrations become unnessesary. If we _really_ want migrations we can add a mongoDB migrations npm package later.
+- Switching to mongoose means we lose use migrations, which are super helpful for versioning and keeping track of very strict schemas. However if needed we can install an npm package for managing mongoDB migrations.
 
 ## [API Documentation](api.md)
 
@@ -28,13 +29,14 @@ npm install
 
 If not already done, ask for the `ATLAS_URI` password from me (Ryan Jung), create your own MongoDB cluster on Atlas, or install MongoDB locally.
 
-If needed, create new local SSL certificates with this command:
+Create new local SSL certificates with this command:
 
 ```sh
 openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem -days 1000
 ```
+You will be prompted for some information, but the only thing that matters is the passphrase you set. Remember it.
 
-This will generate a cert.pem and key.pem needed for HTTPS. Chrome and other browsers will give a warning when you connect, but it can be ignored.
+It will then generate two files: cert.pem and key.pem, which are needed for HTTPS. Chrome and other browsers will give a warning when you connect, but it can be ignored.
 
 Create a file named `.env` in the root folder with the URI for your mongoDB connection and the passphrase for the SSL certificate like so:
 
@@ -44,6 +46,10 @@ SSL_PASSPHRASE=password
 JWT_SECRET=superdupersecrettoken
 HEROKU=false
 ```
+
+This file will be loaded into `process.env`, so you could also set the `PORT` among other common environment variables in here.
+
+...and youre ready to go!
 
 ## Run
 

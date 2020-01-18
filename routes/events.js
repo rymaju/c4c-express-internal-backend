@@ -11,8 +11,6 @@ router.route("/").get((req, res) => {
     .catch(err => res.status(400).json("Error: " + err));
 });
 
-//CRUD on events by ID
-
 //Get an event by ID
 //public
 router.route("/:id").get(function(req, res, next) {
@@ -20,7 +18,7 @@ router.route("/:id").get(function(req, res, next) {
     .then(event => res.json(event))
     .catch(err => res.status(400).json("Error " + err));
 });
-//Create an event by ID
+//Create an event
 //Requires level 1 privileges
 router.route("/").post(authenticate(1), function(req, res, next) {
   const name = req.body.name;

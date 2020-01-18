@@ -14,9 +14,7 @@ router.route("/").get((req, res) => {
     .catch(err => res.status(400).json("Error: " + err));
 });
 
-//CRUD on events by ID
-
-//Get an event by ID
+//Get a user by ID
 //public
 router.route("/:id").get(function(req, res, next) {
   User.findById(req.params.id, publicUserData)

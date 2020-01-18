@@ -11,8 +11,6 @@ router.route("/").get((req, res) => {
     .catch(err => res.status(400).json("Error: " + err));
 });
 
-//CRUD on news posts by ID
-
 //Get a news post by ID
 //public
 router.route("/:id").get(function(req, res, next) {
@@ -20,7 +18,7 @@ router.route("/:id").get(function(req, res, next) {
     .then(post => res.json(post))
     .catch(err => res.status(400).json("Error " + err));
 });
-//Create a news post by ID
+//Create a news post
 //Requires level 1 privileges
 router.route("/").post(authenticate(1), function(req, res, next) {
   const title = req.body.title;
@@ -44,7 +42,7 @@ router.route("/").post(authenticate(1), function(req, res, next) {
     .then(() => res.json("News post added!"))
     .catch(err => res.status(400).json("Error: " + err));
 });
-//Update an event by ID
+//Update a news post by ID
 //Requires level 1 privileges
 router.route("/:id").put(authenticate(1), function(req, res, next) {
   News.findById(req.params.id)
@@ -62,7 +60,7 @@ router.route("/:id").put(authenticate(1), function(req, res, next) {
     })
     .catch(err => res.status(400).json("Error " + err));
 });
-//Delete an event by ID
+//Delete a news post by ID
 //Requires level 1 privileges
 router.route("/:id").delete(authenticate(1), function(req, res, next) {
   News.findByIdAndDelete(req.params.id)
