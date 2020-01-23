@@ -21,14 +21,16 @@ router.route("/:id").get(function(req, res, next) {
 //Create an event
 //Requires level 1 privileges
 router.route("/").post(authenticate(1), function(req, res, next) {
-  const name = req.body.name;
+  const title = req.body.title;
+  const subtitle = req.body.subtitle;
   const description = req.body.description;
   const eventDate = Date.parse(req.body.eventDate);
   const eventCode = req.body.eventCode;
   const isOpen = req.body.isOpen;
 
   const newEvent = new Event({
-    name,
+    title,
+    subtitle,
     description,
     eventDate,
     eventCode,
@@ -45,7 +47,8 @@ router.route("/").post(authenticate(1), function(req, res, next) {
 router.route("/:id").put(authenticate(1), function(req, res, next) {
   Event.findById(req.params.id)
     .then(event => {
-      event.name = req.body.name;
+      event.title = req.body.title;
+      event.subtitle = req.body.subtitle;
       event.description = req.body.description;
       event.eventDate = Date.parse(req.body.eventDate);
       event.eventCode = req.body.eventCode;
