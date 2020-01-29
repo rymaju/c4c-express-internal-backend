@@ -11,7 +11,9 @@ const eventSchema = new Schema(
     eventDate: { type: Date, required: true },
     eventCode: { type: String, required: true, unique: true },
     isOpen: { type: Boolean, required: true },
-    attendees: { type: [ObjectId], default: [] }
+    attendees: { type: [ObjectId], default: [] },
+    imageUrl: { type: String, required: true }
+
   },
   {
     timestamps: true
